@@ -42,7 +42,7 @@ public class MenuVentas extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         TVentas = new javax.swing.JTable();
         TFId = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
+        EFondo = new javax.swing.JLabel();
         MBVentas = new javax.swing.JMenuBar();
         MOpciones = new javax.swing.JMenu();
         MICerrarTodo = new javax.swing.JMenuItem();
@@ -169,8 +169,8 @@ public class MenuVentas extends javax.swing.JFrame {
         });
         getContentPane().add(TFId, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 120, 40));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ventas.jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 310));
+        EFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ventas.jpg"))); // NOI18N
+        getContentPane().add(EFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 310));
 
         MOpciones.setText("Opciones");
 
@@ -320,6 +320,7 @@ public class MenuVentas extends javax.swing.JFrame {
     private javax.swing.JButton BSeleccionar;
     private javax.swing.JButton BVisualizar;
     private javax.swing.JLabel EArticulo;
+    private javax.swing.JLabel EFondo;
     private javax.swing.JLabel EMarca;
     private javax.swing.JLabel EPrecio;
     private javax.swing.JLabel EVentas;
@@ -331,7 +332,6 @@ public class MenuVentas extends javax.swing.JFrame {
     private javax.swing.JTextField TFMarca;
     private javax.swing.JTextField TFPrecio;
     private javax.swing.JTable TVentas;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

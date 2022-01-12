@@ -117,8 +117,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     //accion del boton Personal
     private void BPersonalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BPersonalActionPerformed
-        //muestra mensaje de que no esta disponible
-        JOptionPane.showMessageDialog(null, "opcion no disponible");
+        //crea objeto de la clase MenuPersonal y lo vuelve visible
+        MenuPersonal personal = new MenuPersonal();
+        personal.setVisible(true);
     }//GEN-LAST:event_BPersonalActionPerformed
 
     //accion del boton Inventario

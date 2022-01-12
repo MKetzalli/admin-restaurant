@@ -29,7 +29,7 @@ public class MenuInventario extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel2 = new javax.swing.JLabel();
+        EInventario = new javax.swing.JLabel();
         EClaveProducto = new javax.swing.JLabel();
         ESucursal = new javax.swing.JLabel();
         EProducto = new javax.swing.JLabel();
@@ -50,17 +50,17 @@ public class MenuInventario extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         TInventario = new javax.swing.JTable();
         TFId = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
+        EFondo = new javax.swing.JLabel();
         MBInventario = new javax.swing.JMenuBar();
         MOpciones = new javax.swing.JMenu();
         MICerrarTodo = new javax.swing.JMenuItem();
 
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Rockwell Condensed", 0, 48)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("INVENTARIO");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, -1, -1));
+        EInventario.setFont(new java.awt.Font("Rockwell Condensed", 0, 48)); // NOI18N
+        EInventario.setForeground(new java.awt.Color(255, 255, 255));
+        EInventario.setText("INVENTARIO");
+        getContentPane().add(EInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, -1, -1));
 
         EClaveProducto.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         EClaveProducto.setForeground(new java.awt.Color(255, 255, 255));
@@ -201,8 +201,8 @@ public class MenuInventario extends javax.swing.JFrame {
         });
         getContentPane().add(TFId, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 120, 40));
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/inventario.jpg"))); // NOI18N
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 380));
+        EFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/inventario.jpg"))); // NOI18N
+        getContentPane().add(EFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 380));
 
         MOpciones.setText("Opciones");
 
@@ -370,6 +370,8 @@ public class MenuInventario extends javax.swing.JFrame {
     private javax.swing.JButton BSeleccionar;
     private javax.swing.JLabel ECantidad;
     private javax.swing.JLabel EClaveProducto;
+    private javax.swing.JLabel EFondo;
+    private javax.swing.JLabel EInventario;
     private javax.swing.JLabel EMarca;
     private javax.swing.JLabel EProducto;
     private javax.swing.JLabel EProveedor;
@@ -385,8 +387,6 @@ public class MenuInventario extends javax.swing.JFrame {
     private javax.swing.JTextField TFProveedor;
     private javax.swing.JTextField TFSucursal;
     private javax.swing.JTable TInventario;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
