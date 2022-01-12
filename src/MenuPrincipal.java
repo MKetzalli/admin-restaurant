@@ -24,6 +24,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
         BotonInventarios = new javax.swing.JButton();
         BotonSalirPrinc = new javax.swing.JButton();
         EtiquetaFondo = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        JMOpciones = new javax.swing.JMenu();
+        JMISalir = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Restaurante");
@@ -33,7 +36,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         EtiquetaTitulo.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 48)); // NOI18N
         EtiquetaTitulo.setForeground(new java.awt.Color(255, 255, 255));
         EtiquetaTitulo.setText("RESTAURANTE");
-        getContentPane().add(EtiquetaTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, -1, -1));
+        getContentPane().add(EtiquetaTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, -1));
 
         BotonVentas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ventas.png"))); // NOI18N
         BotonVentas.setToolTipText("");
@@ -48,7 +51,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 BotonVentasActionPerformed(evt);
             }
         });
-        getContentPane().add(BotonVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, -1, -1));
+        getContentPane().add(BotonVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, -1, -1));
 
         BotonPersonal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/personal.png"))); // NOI18N
         BotonPersonal.setBorder(null);
@@ -62,7 +65,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 BotonPersonalActionPerformed(evt);
             }
         });
-        getContentPane().add(BotonPersonal, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, -1, -1));
+        getContentPane().add(BotonPersonal, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, -1, -1));
 
         BotonInventarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/inventarios.png"))); // NOI18N
         BotonInventarios.setBorder(null);
@@ -76,7 +79,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 BotonInventariosActionPerformed(evt);
             }
         });
-        getContentPane().add(BotonInventarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, -1, -1));
+        getContentPane().add(BotonInventarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, -1, -1));
 
         BotonSalirPrinc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/salir.png"))); // NOI18N
         BotonSalirPrinc.setBorder(null);
@@ -89,10 +92,24 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 BotonSalirPrincActionPerformed(evt);
             }
         });
-        getContentPane().add(BotonSalirPrinc, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, -1, -1));
+        getContentPane().add(BotonSalirPrinc, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, -1, -1));
 
         EtiquetaFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/comida.jpg"))); // NOI18N
         getContentPane().add(EtiquetaFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 360));
+
+        JMOpciones.setText("Opciones");
+
+        JMISalir.setText("Salir");
+        JMISalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JMISalirActionPerformed(evt);
+            }
+        });
+        JMOpciones.add(JMISalir);
+
+        jMenuBar1.add(JMOpciones);
+
+        setJMenuBar(jMenuBar1);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -115,6 +132,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
         Ventas MenuVentas = new Ventas();
         MenuVentas.setVisible(true);
     }//GEN-LAST:event_BotonVentasActionPerformed
+    //cerrar al presionarlo
+    private void JMISalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMISalirActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_JMISalirActionPerformed
     //metodo main
     public static void main(String args[]) {
         //comienzo de codigo generado por Design
@@ -150,5 +171,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton BotonVentas;
     private javax.swing.JLabel EtiquetaFondo;
     private javax.swing.JLabel EtiquetaTitulo;
+    private javax.swing.JMenuItem JMISalir;
+    private javax.swing.JMenu JMOpciones;
+    private javax.swing.JMenuBar jMenuBar1;
     // End of variables declaration//GEN-END:variables
 }
