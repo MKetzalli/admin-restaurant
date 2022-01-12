@@ -123,8 +123,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     //accion del boton Inventario
     private void BInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BInventarioActionPerformed
-        //muestra mensaje de que no esta disponible
-        JOptionPane.showMessageDialog(null, "opcion no disponible");
+        //crea objeto de la clase MenuInventario y lo vuelve visible
+        MenuInventario inventario = new MenuInventario();
+        inventario.setVisible(true);
     }//GEN-LAST:event_BInventarioActionPerformed
 
     //comienzo de metodo main generado por la vista diseño

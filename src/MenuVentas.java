@@ -43,13 +43,11 @@ public class MenuVentas extends javax.swing.JFrame {
         TVentas = new javax.swing.JTable();
         TFId = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jMenuBar1 = new javax.swing.JMenuBar();
+        MBVentas = new javax.swing.JMenuBar();
         MOpciones = new javax.swing.JMenu();
         MICerrarTodo = new javax.swing.JMenuItem();
 
-        setBounds(new java.awt.Rectangle(0, 0, 406, 363));
-        setMinimumSize(new java.awt.Dimension(406, 363));
-        setPreferredSize(new java.awt.Dimension(406, 363));
+        setBounds(new java.awt.Rectangle(0, 0, 0, 0));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -59,14 +57,17 @@ public class MenuVentas extends javax.swing.JFrame {
         getContentPane().add(EVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, -1, -1));
 
         EArticulo.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        EArticulo.setForeground(new java.awt.Color(255, 255, 255));
         EArticulo.setText("Articulo");
         getContentPane().add(EArticulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(83, 75, -1, -1));
 
         EPrecio.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        EPrecio.setForeground(new java.awt.Color(255, 255, 255));
         EPrecio.setText("Precio");
         getContentPane().add(EPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(92, 114, -1, -1));
 
         EMarca.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        EMarca.setForeground(new java.awt.Color(255, 255, 255));
         EMarca.setText("Marca");
         getContentPane().add(EMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(88, 153, -1, -1));
         getContentPane().add(TFArticulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(166, 76, 172, -1));
@@ -77,7 +78,7 @@ public class MenuVentas extends javax.swing.JFrame {
         BGuardar.setBorder(null);
         BGuardar.setBorderPainted(false);
         BGuardar.setContentAreaFilled(false);
-        BGuardar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        BGuardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BGuardar.setFocusPainted(false);
         BGuardar.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/guardar pulsado.png"))); // NOI18N
         BGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -91,7 +92,7 @@ public class MenuVentas extends javax.swing.JFrame {
         BLimpiar.setBorder(null);
         BLimpiar.setBorderPainted(false);
         BLimpiar.setContentAreaFilled(false);
-        BLimpiar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        BLimpiar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BLimpiar.setFocusPainted(false);
         BLimpiar.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/limpiar pulsado.png"))); // NOI18N
         BLimpiar.addActionListener(new java.awt.event.ActionListener() {
@@ -105,7 +106,7 @@ public class MenuVentas extends javax.swing.JFrame {
         BSeleccionar.setBorder(null);
         BSeleccionar.setBorderPainted(false);
         BSeleccionar.setContentAreaFilled(false);
-        BSeleccionar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        BSeleccionar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BSeleccionar.setFocusPainted(false);
         BSeleccionar.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/seleccionar pulsado.png"))); // NOI18N
         BSeleccionar.addActionListener(new java.awt.event.ActionListener() {
@@ -119,7 +120,7 @@ public class MenuVentas extends javax.swing.JFrame {
         BVisualizar.setBorder(null);
         BVisualizar.setBorderPainted(false);
         BVisualizar.setContentAreaFilled(false);
-        BVisualizar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        BVisualizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BVisualizar.setFocusPainted(false);
         BVisualizar.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/visualizar pulsado.png"))); // NOI18N
         BVisualizar.addActionListener(new java.awt.event.ActionListener() {
@@ -133,7 +134,7 @@ public class MenuVentas extends javax.swing.JFrame {
         BSalir.setBorder(null);
         BSalir.setBorderPainted(false);
         BSalir.setContentAreaFilled(false);
-        BSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        BSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BSalir.setFocusPainted(false);
         BSalir.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/salir pulsado.png"))); // NOI18N
         BSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -156,7 +157,7 @@ public class MenuVentas extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(TVentas);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, 400, 240));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 0, 400, 310));
 
         TFId.setForeground(new java.awt.Color(153, 153, 153));
         TFId.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -181,9 +182,9 @@ public class MenuVentas extends javax.swing.JFrame {
         });
         MOpciones.add(MICerrarTodo);
 
-        jMenuBar1.add(MOpciones);
+        MBVentas.add(MOpciones);
 
-        setJMenuBar(jMenuBar1);
+        setJMenuBar(MBVentas);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -234,13 +235,11 @@ public class MenuVentas extends javax.swing.JFrame {
 
     //accion del boton Visualizar
     private void BVisualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BVisualizarActionPerformed
-        //se amplia la ventana para que se puedan mostrar los registros de la tabla
-        this.setSize(406, 600);
         /*
         se le ingresan los titulos y registros a la tabla para que muestre los que se
         encuentran registrados dentro de la BD, en cada ciclo del while se agrega un registro de la BD
         */
-        String[] titulos = {"Clave", "Articulo", "Precio", "Marca"};
+        String[] titulos = {"Cve_Venta", "Producto", "Precio", "Marca"};
         String[] registros = new String[4];
         DefaultTableModel model = new DefaultTableModel(null, titulos);
         Statement st;
@@ -324,6 +323,7 @@ public class MenuVentas extends javax.swing.JFrame {
     private javax.swing.JLabel EMarca;
     private javax.swing.JLabel EPrecio;
     private javax.swing.JLabel EVentas;
+    private javax.swing.JMenuBar MBVentas;
     private javax.swing.JMenuItem MICerrarTodo;
     private javax.swing.JMenu MOpciones;
     private javax.swing.JTextField TFArticulo;
@@ -332,7 +332,6 @@ public class MenuVentas extends javax.swing.JFrame {
     private javax.swing.JTextField TFPrecio;
     private javax.swing.JTable TVentas;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
