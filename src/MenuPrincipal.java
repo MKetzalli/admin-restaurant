@@ -26,18 +26,20 @@ public class MenuPrincipal extends javax.swing.JFrame {
         BPersonal = new javax.swing.JButton();
         BInventario = new javax.swing.JButton();
         BSalir = new javax.swing.JButton();
+        BReporte = new javax.swing.JButton();
         EFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(0, 0, 440, 340));
         setPreferredSize(new java.awt.Dimension(436, 340));
         setResizable(false);
+        setSize(new java.awt.Dimension(0, 0));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         LRestaurante.setFont(new java.awt.Font("Rockwell Condensed", 0, 48)); // NOI18N
         LRestaurante.setForeground(new java.awt.Color(255, 255, 255));
         LRestaurante.setText("RESTAURANTE MEXICANO");
-        getContentPane().add(LRestaurante, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+        getContentPane().add(LRestaurante, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, 40));
 
         BVentas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ventas.png"))); // NOI18N
         BVentas.setBorder(null);
@@ -51,7 +53,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 BVentasActionPerformed(evt);
             }
         });
-        getContentPane().add(BVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, -1, -1));
+        getContentPane().add(BVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, -1, -1));
 
         BPersonal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/personal.png"))); // NOI18N
         BPersonal.setBorder(null);
@@ -65,7 +67,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 BPersonalActionPerformed(evt);
             }
         });
-        getContentPane().add(BPersonal, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, -1, -1));
+        getContentPane().add(BPersonal, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, -1, -1));
 
         BInventario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/inventarios.png"))); // NOI18N
         BInventario.setBorder(null);
@@ -79,7 +81,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 BInventarioActionPerformed(evt);
             }
         });
-        getContentPane().add(BInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 190, -1, -1));
+        getContentPane().add(BInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 160, -1, -1));
 
         BSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/salir.png"))); // NOI18N
         BSalir.setBorder(null);
@@ -93,10 +95,25 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 BSalirActionPerformed(evt);
             }
         });
-        getContentPane().add(BSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, -1, -1));
+        getContentPane().add(BSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 260, -1, -1));
+
+        BReporte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/reporte.png"))); // NOI18N
+        BReporte.setBorder(null);
+        BReporte.setBorderPainted(false);
+        BReporte.setContentAreaFilled(false);
+        BReporte.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BReporte.setDefaultCapable(false);
+        BReporte.setFocusPainted(false);
+        BReporte.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/reporte pulsado.png"))); // NOI18N
+        BReporte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BReporteActionPerformed(evt);
+            }
+        });
+        getContentPane().add(BReporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 210, -1, -1));
 
         EFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/restaurante.jpg"))); // NOI18N
-        getContentPane().add(EFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(EFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -129,6 +146,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
         inventario.setVisible(true);
     }//GEN-LAST:event_BInventarioActionPerformed
 
+    //accion del boton Reporte
+    private void BReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BReporteActionPerformed
+        MenuReporte reporte=new MenuReporte();
+        reporte.setVisible(true);
+    }//GEN-LAST:event_BReporteActionPerformed
+
     //comienzo de metodo main generado por la vista diseño
     public static void main(String args[]) {
         try {
@@ -159,6 +182,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BInventario;
     private javax.swing.JButton BPersonal;
+    private javax.swing.JButton BReporte;
     private javax.swing.JButton BSalir;
     private javax.swing.JButton BVentas;
     private javax.swing.JLabel EFondo;

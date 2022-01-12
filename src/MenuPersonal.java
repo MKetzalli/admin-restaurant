@@ -16,6 +16,7 @@ public class MenuPersonal extends javax.swing.JFrame {
         initComponents();
         //hacer que la ventana aparezca al centro de la pantalla
         this.setLocationRelativeTo(null);
+        Actualizar();
     }
 
     /*
@@ -44,7 +45,7 @@ public class MenuPersonal extends javax.swing.JFrame {
         TFSueldo = new javax.swing.JTextField();
         TFNum = new javax.swing.JTextField();
         BLimpiar = new javax.swing.JButton();
-        BVisualizar = new javax.swing.JButton();
+        BEditar = new javax.swing.JButton();
         BSeleccionar = new javax.swing.JButton();
         BSalir = new javax.swing.JButton();
         BCapturar = new javax.swing.JButton();
@@ -53,7 +54,6 @@ public class MenuPersonal extends javax.swing.JFrame {
         MOpciones = new javax.swing.JMenu();
         MICerrarTodo = new javax.swing.JMenuItem();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         TPersonal.setModel(new javax.swing.table.DefaultTableModel(
@@ -140,20 +140,20 @@ public class MenuPersonal extends javax.swing.JFrame {
         });
         getContentPane().add(BLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 290, -1, -1));
 
-        BVisualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/visualizar.png"))); // NOI18N
-        BVisualizar.setBorder(null);
-        BVisualizar.setBorderPainted(false);
-        BVisualizar.setContentAreaFilled(false);
-        BVisualizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        BVisualizar.setDefaultCapable(false);
-        BVisualizar.setFocusPainted(false);
-        BVisualizar.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/visualizar pulsado.png"))); // NOI18N
-        BVisualizar.addActionListener(new java.awt.event.ActionListener() {
+        BEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/editar.png"))); // NOI18N
+        BEditar.setBorder(null);
+        BEditar.setBorderPainted(false);
+        BEditar.setContentAreaFilled(false);
+        BEditar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BEditar.setDefaultCapable(false);
+        BEditar.setFocusPainted(false);
+        BEditar.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/editar pulsado.png"))); // NOI18N
+        BEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BVisualizarActionPerformed(evt);
+                BEditarActionPerformed(evt);
             }
         });
-        getContentPane().add(BVisualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 290, -1, -1));
+        getContentPane().add(BEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 290, -1, -1));
 
         BSeleccionar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/seleccionar.png"))); // NOI18N
         BSeleccionar.setBorder(null);
@@ -269,7 +269,7 @@ public class MenuPersonal extends javax.swing.JFrame {
             pst.executeUpdate();
             JOptionPane.showMessageDialog(null, "Registro guardado exitosamente");
             pst.close();
-            
+            Actualizar();
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error al intentar almacenar la información:\n" + e + "Error en la operación" + JOptionPane.ERROR_MESSAGE);
         }
@@ -277,41 +277,46 @@ public class MenuPersonal extends javax.swing.JFrame {
 
     //accion del boton Seleccionar
     private void BSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BSeleccionarActionPerformed
+        TFNumeroEmpleado.setText(TFNum.getText());
+    }//GEN-LAST:event_BSeleccionarActionPerformed
+
+    //accion del boton Editar
+    private void BEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BEditarActionPerformed
         /*
         se recupera el id del registro que se desea modificar junto con el contenido de los campos,
         con esta informacion se modifica el registro almacenado que corresponde a dicho id, si
         la modificacion fue correcta o no, se le indica al usuario.
         */
-        TFNumeroEmpleado.setText(TFNum.getText());
-        int reg = Integer.parseInt(TFNum.getText());
+        int reg = Integer.parseInt(TFNumeroEmpleado.getText());
         try {
             PreparedStatement pst = conex.prepareStatement("UPDATE Personal SET Sucursal=?,Nombre=?,Apellido=?,Edad=?,Sueldo=? WHERE No_Empleado=" + reg);
             pst.setString(1, TFSucursal.getText());
             pst.setString(2, TFNombre.getText());
             pst.setString(3, TFApellido.getText());
             pst.setInt(4, Integer.parseInt(TFEdad.getText()));
-            pst.setFloat(5,Float.parseFloat(TFSueldo.getText()));
+            pst.setFloat(5, Float.parseFloat(TFSueldo.getText()));
             pst.executeUpdate();
             JOptionPane.showMessageDialog(null, "Modificacion Exitosa");
             pst.close();
+            Actualizar();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Modificacion Fallida");
         }
-    }//GEN-LAST:event_BSeleccionarActionPerformed
+    }//GEN-LAST:event_BEditarActionPerformed
 
-    //accion del boton Visualizar
-    private void BVisualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BVisualizarActionPerformed
+    //metodo para actualizar la BD
+    private void Actualizar(){
         /*
         se le ingresan los titulos y registros a la tabla para que muestre los que se
         encuentran registrados dentro de la BD, en cada ciclo del while se agrega un registro de la BD
         */
-        String[] titulos = {"No_Empleado", "Sucursal", "Nombre", "Apellido", "Edad", "Sueldo"};
+        String[] titulos = {"No_Empleado", "Sucursal", "Nombre", "Apellido","Edad","Sueldo"};
         String[] registros = new String[6];
         DefaultTableModel model = new DefaultTableModel(null, titulos);
         Statement st;
         try {
             st = conex.createStatement();
-            ResultSet rs = st.executeQuery("SELECT * FROM Personal");
+            ResultSet rs = st.executeQuery("SELECT * FROM personal");
             while (rs.next()) {
                 registros[0] = rs.getString("No_Empleado");
                 registros[1] = rs.getString("Sucursal");
@@ -325,8 +330,8 @@ public class MenuPersonal extends javax.swing.JFrame {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "error");
         }
-    }//GEN-LAST:event_BVisualizarActionPerformed
-
+    }
+    
     //comienzo de metodo main generado por la vista diseño
     public static void main(String args[]) {
         
@@ -358,10 +363,10 @@ public class MenuPersonal extends javax.swing.JFrame {
     //declaracion de variables
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BCapturar;
+    private javax.swing.JButton BEditar;
     private javax.swing.JButton BLimpiar;
     private javax.swing.JButton BSalir;
     private javax.swing.JButton BSeleccionar;
-    private javax.swing.JButton BVisualizar;
     private javax.swing.JLabel EApellido;
     private javax.swing.JLabel EEdad;
     private javax.swing.JLabel EFondo;

@@ -1,5 +1,6 @@
 //importar librerias
 import java.sql.*;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -16,6 +17,10 @@ public class MenuVentas extends javax.swing.JFrame {
         initComponents();
         //hacer que la ventana aparezca al centro de la pantalla
         this.setLocationRelativeTo(null);
+        //tabla de la BD
+        Actualizar();
+        //llenado del combobox
+        Llenar(CBEmpleado);
     }
 
     /*
@@ -34,14 +39,18 @@ public class MenuVentas extends javax.swing.JFrame {
         TFArticulo = new javax.swing.JTextField();
         TFPrecio = new javax.swing.JTextField();
         TFMarca = new javax.swing.JTextField();
-        BGuardar = new javax.swing.JButton();
+        BCapturar = new javax.swing.JButton();
         BLimpiar = new javax.swing.JButton();
         BSeleccionar = new javax.swing.JButton();
-        BVisualizar = new javax.swing.JButton();
+        BEditar = new javax.swing.JButton();
         BSalir = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         TVentas = new javax.swing.JTable();
         TFId = new javax.swing.JTextField();
+        EClaveVenta = new javax.swing.JLabel();
+        TFClaveVenta = new javax.swing.JTextField();
+        CBEmpleado = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
         EFondo = new javax.swing.JLabel();
         MBVentas = new javax.swing.JMenuBar();
         MOpciones = new javax.swing.JMenu();
@@ -54,39 +63,39 @@ public class MenuVentas extends javax.swing.JFrame {
         EVentas.setFont(new java.awt.Font("Rockwell Condensed", 0, 48)); // NOI18N
         EVentas.setForeground(new java.awt.Color(255, 255, 255));
         EVentas.setText("VENTAS");
-        getContentPane().add(EVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, -1, -1));
+        getContentPane().add(EVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, -1, 50));
 
         EArticulo.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         EArticulo.setForeground(new java.awt.Color(255, 255, 255));
         EArticulo.setText("Articulo");
-        getContentPane().add(EArticulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(83, 75, -1, -1));
+        getContentPane().add(EArticulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, -1, -1));
 
         EPrecio.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         EPrecio.setForeground(new java.awt.Color(255, 255, 255));
         EPrecio.setText("Precio");
-        getContentPane().add(EPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(92, 114, -1, -1));
+        getContentPane().add(EPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, -1, -1));
 
         EMarca.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         EMarca.setForeground(new java.awt.Color(255, 255, 255));
         EMarca.setText("Marca");
-        getContentPane().add(EMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(88, 153, -1, -1));
-        getContentPane().add(TFArticulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(166, 76, 172, -1));
-        getContentPane().add(TFPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(166, 115, 172, -1));
-        getContentPane().add(TFMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(166, 154, 172, -1));
+        getContentPane().add(EMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 160, -1, -1));
+        getContentPane().add(TFArticulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 172, -1));
+        getContentPane().add(TFPrecio, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, 172, -1));
+        getContentPane().add(TFMarca, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 160, 172, -1));
 
-        BGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/guardar.png"))); // NOI18N
-        BGuardar.setBorder(null);
-        BGuardar.setBorderPainted(false);
-        BGuardar.setContentAreaFilled(false);
-        BGuardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        BGuardar.setFocusPainted(false);
-        BGuardar.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/guardar pulsado.png"))); // NOI18N
-        BGuardar.addActionListener(new java.awt.event.ActionListener() {
+        BCapturar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/capturar.png"))); // NOI18N
+        BCapturar.setBorder(null);
+        BCapturar.setBorderPainted(false);
+        BCapturar.setContentAreaFilled(false);
+        BCapturar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BCapturar.setFocusPainted(false);
+        BCapturar.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/capturar pulsado.png"))); // NOI18N
+        BCapturar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BGuardarActionPerformed(evt);
+                BCapturarActionPerformed(evt);
             }
         });
-        getContentPane().add(BGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 208, -1, -1));
+        getContentPane().add(BCapturar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, -1, -1));
 
         BLimpiar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/limpiar.png"))); // NOI18N
         BLimpiar.setBorder(null);
@@ -100,7 +109,7 @@ public class MenuVentas extends javax.swing.JFrame {
                 BLimpiarActionPerformed(evt);
             }
         });
-        getContentPane().add(BLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 208, -1, -1));
+        getContentPane().add(BLimpiar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, -1, -1));
 
         BSeleccionar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/seleccionar.png"))); // NOI18N
         BSeleccionar.setBorder(null);
@@ -114,21 +123,21 @@ public class MenuVentas extends javax.swing.JFrame {
                 BSeleccionarActionPerformed(evt);
             }
         });
-        getContentPane().add(BSeleccionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 260, -1, -1));
+        getContentPane().add(BSeleccionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, -1, -1));
 
-        BVisualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/visualizar.png"))); // NOI18N
-        BVisualizar.setBorder(null);
-        BVisualizar.setBorderPainted(false);
-        BVisualizar.setContentAreaFilled(false);
-        BVisualizar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        BVisualizar.setFocusPainted(false);
-        BVisualizar.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/visualizar pulsado.png"))); // NOI18N
-        BVisualizar.addActionListener(new java.awt.event.ActionListener() {
+        BEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/editar.png"))); // NOI18N
+        BEditar.setBorder(null);
+        BEditar.setBorderPainted(false);
+        BEditar.setContentAreaFilled(false);
+        BEditar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BEditar.setFocusPainted(false);
+        BEditar.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/editar pulsado.png"))); // NOI18N
+        BEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BVisualizarActionPerformed(evt);
+                BEditarActionPerformed(evt);
             }
         });
-        getContentPane().add(BVisualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 210, -1, -1));
+        getContentPane().add(BEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 200, -1, -1));
 
         BSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/salir.png"))); // NOI18N
         BSalir.setBorder(null);
@@ -142,7 +151,7 @@ public class MenuVentas extends javax.swing.JFrame {
                 BSalirActionPerformed(evt);
             }
         });
-        getContentPane().add(BSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 260, -1, -1));
+        getContentPane().add(BSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 250, -1, -1));
 
         TVentas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -157,7 +166,7 @@ public class MenuVentas extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(TVentas);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 0, 400, 310));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 0, 400, 300));
 
         TFId.setForeground(new java.awt.Color(153, 153, 153));
         TFId.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -167,10 +176,25 @@ public class MenuVentas extends javax.swing.JFrame {
                 TFIdMouseClicked(evt);
             }
         });
-        getContentPane().add(TFId, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 120, 40));
+        getContentPane().add(TFId, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 120, 40));
+
+        EClaveVenta.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        EClaveVenta.setForeground(new java.awt.Color(255, 255, 255));
+        EClaveVenta.setText("Clave de Venta");
+        getContentPane().add(EClaveVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
+
+        TFClaveVenta.setEditable(false);
+        TFClaveVenta.setBackground(new java.awt.Color(204, 204, 204));
+        getContentPane().add(TFClaveVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 170, -1));
+        getContentPane().add(CBEmpleado, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 100, 70, 20));
+
+        jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Empleado");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 70, 80, 20));
 
         EFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ventas.jpg"))); // NOI18N
-        getContentPane().add(EFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 310));
+        getContentPane().add(EFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 450, 300));
 
         MOpciones.setText("Opciones");
 
@@ -205,15 +229,22 @@ public class MenuVentas extends javax.swing.JFrame {
     //accion del boton Limpiar
     private void BLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BLimpiarActionPerformed
         //vacian los campos de texto
+        TFClaveVenta.setText("");
         TFArticulo.setText("");
         TFPrecio.setText("");
         TFMarca.setText("");
         //reescribe el contenido del campo de texto id
         TFId.setText("id para modificar");
+        //reiniciar ComboBox
+        CBEmpleado.setSelectedIndex(0);
     }//GEN-LAST:event_BLimpiarActionPerformed
 
     //accion del boton Guardar
-    private void BGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BGuardarActionPerformed
+    private void BCapturarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BCapturarActionPerformed
+        //obtencion de combobox
+        String dato =(String) CBEmpleado.getSelectedItem();
+        int CBEmp=Integer.parseInt(dato);
+        //ingreso de datos a guardar
         try {
             /*
             se comunica con la base de datos para darle la instruccion sql de ingresar los elementos contenidos en
@@ -221,26 +252,65 @@ public class MenuVentas extends javax.swing.JFrame {
             mandar la instruccion y que se ejecute correctamente se muestra un mensaje informando esto, si ocurre
             algun error este es notificado al usuario
             */
-            PreparedStatement pst = conex.prepareStatement("INSERT INTO Ventas(Producto,Precio,Marca) VALUES (?,?,?)");
+            PreparedStatement pst = conex.prepareStatement("INSERT INTO Ventas(Producto,Precio,Marca,No_Empleado) VALUES (?,?,?,?)");
             pst.setString(1, TFArticulo.getText());
             pst.setFloat(2, Float.parseFloat(TFPrecio.getText()));
             pst.setString(3, TFMarca.getText());
+            pst.setInt(4, CBEmp);
             pst.executeUpdate();
             JOptionPane.showMessageDialog(null, "Registro guardado exitosamente");
             pst.close();
+            Actualizar();
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error al intentar almacenar la información:\n" + e + "Error en la operación" + JOptionPane.ERROR_MESSAGE);
         }
-    }//GEN-LAST:event_BGuardarActionPerformed
+    }//GEN-LAST:event_BCapturarActionPerformed
 
-    //accion del boton Visualizar
-    private void BVisualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BVisualizarActionPerformed
+    //accion del boton Editar
+    private void BEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BEditarActionPerformed
+        //obtencion de combobox
+        String dato =(String) CBEmpleado.getSelectedItem();
+        int CBEmp=Integer.parseInt(dato);
+        /*
+        se recupera el id del registro que se desea modificar junto con el contenido de los campos,
+        con esta informacion se modifica el registro almacenado que corresponde a dicho id, si
+        la modificacion fue correcta o no, se le indica al usuario.
+        */
+        int reg = Integer.parseInt(TFClaveVenta.getText());
+        try {
+            PreparedStatement pst = conex.prepareStatement("UPDATE Ventas SET Producto=?,Precio=?,Marca=?,No_Empleado=? WHERE Cve_Venta=" + reg);
+            pst.setString(1, TFArticulo.getText());
+            pst.setFloat(2, Float.parseFloat(TFPrecio.getText()));
+            pst.setString(3, TFMarca.getText());
+            pst.setInt(4, CBEmp);
+            pst.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Modificacion Exitosa");
+            pst.close();
+            Actualizar();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Modificacion Fallida");
+        }
+    }//GEN-LAST:event_BEditarActionPerformed
+
+    //accion del boton Seleccionar
+    private void BSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BSeleccionarActionPerformed
+        TFClaveVenta.setText(TFId.getText());
+    }//GEN-LAST:event_BSeleccionarActionPerformed
+
+    //accion al dar clic en cuadro de texto para id
+    private void TFIdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFIdMouseClicked
+        //deja vacio el campo de texto del id al darle clic
+        TFId.setText("");
+    }//GEN-LAST:event_TFIdMouseClicked
+
+    //metodo para actualizar la BD
+    private void Actualizar(){
         /*
         se le ingresan los titulos y registros a la tabla para que muestre los que se
         encuentran registrados dentro de la BD, en cada ciclo del while se agrega un registro de la BD
         */
-        String[] titulos = {"Cve_Venta", "Producto", "Precio", "Marca"};
-        String[] registros = new String[4];
+        String[] titulos = {"Cve_Venta", "Producto", "Precio", "Marca","No_Empleado"};
+        String[] registros = new String[5];
         DefaultTableModel model = new DefaultTableModel(null, titulos);
         Statement st;
         try {
@@ -251,41 +321,34 @@ public class MenuVentas extends javax.swing.JFrame {
                 registros[1] = rs.getString("Producto");
                 registros[2] = rs.getString("Precio");
                 registros[3] = rs.getString("Marca");
+                registros[4]=rs.getString("No_Empleado");
                 model.addRow(registros);
             }
             TVentas.setModel(model);
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "error");
         }
-    }//GEN-LAST:event_BVisualizarActionPerformed
-
-    //accion del boton Seleccionar
-    private void BSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BSeleccionarActionPerformed
-        /*
-        se recupera el id del registro que se desea modificar junto con el contenido de los campos,
-        con esta informacion se modifica el registro almacenado que corresponde a dicho id, si
-        la modificacion fue correcta o no, se le indica al usuario.
-        */
-        int reg = Integer.parseInt(TFId.getText());
-        try {
-            PreparedStatement pst = conex.prepareStatement("UPDATE Ventas SET Producto=?,Precio=?,Marca=? WHERE Cve_Venta=" + reg);
-            pst.setString(1, TFArticulo.getText());
-            pst.setFloat(2, Float.parseFloat(TFPrecio.getText()));
-            pst.setString(3, TFMarca.getText());
-            pst.executeUpdate();
-            JOptionPane.showMessageDialog(null, "Modificacion Exitosa");
-            pst.close();
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Modificacion Fallida");
-        }
-    }//GEN-LAST:event_BSeleccionarActionPerformed
-
-    //accion al dar clic en cuadro de texto para id
-    private void TFIdMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TFIdMouseClicked
-        //deja vacio el campo de texto del id al darle clic
-        TFId.setText("");
-    }//GEN-LAST:event_TFIdMouseClicked
-
+    }
+    
+    //metodo para llenar el JComboBox
+    public void Llenar(JComboBox CBEmpleado){
+        //sentencia SQL para obtener los datos deseados que conformaran el JComboBox
+        String ssql="SELECT No_Empleado FROM Personal ORDER BY No_Empleado ASC";
+        try{
+            //prepara la consulta sql
+            PreparedStatement pst=conex.prepareStatement(ssql);
+            //ejecuta la consulta
+            ResultSet result=pst.executeQuery();
+            //llenado de CB
+            CBEmpleado.addItem("No.");
+            while(result.next()){
+                CBEmpleado.addItem(result.getString("No_Empleado"));
+            }            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "error");
+        }        
+    }
+    
     //comienzo de metodo main generado por la vista diseño
     public static void main(String args[]) {
         try {
@@ -314,12 +377,14 @@ public class MenuVentas extends javax.swing.JFrame {
     
     //declaracion de variables
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BGuardar;
+    private javax.swing.JButton BCapturar;
+    private javax.swing.JButton BEditar;
     private javax.swing.JButton BLimpiar;
     private javax.swing.JButton BSalir;
     private javax.swing.JButton BSeleccionar;
-    private javax.swing.JButton BVisualizar;
+    private javax.swing.JComboBox<String> CBEmpleado;
     private javax.swing.JLabel EArticulo;
+    private javax.swing.JLabel EClaveVenta;
     private javax.swing.JLabel EFondo;
     private javax.swing.JLabel EMarca;
     private javax.swing.JLabel EPrecio;
@@ -328,10 +393,12 @@ public class MenuVentas extends javax.swing.JFrame {
     private javax.swing.JMenuItem MICerrarTodo;
     private javax.swing.JMenu MOpciones;
     private javax.swing.JTextField TFArticulo;
+    private javax.swing.JTextField TFClaveVenta;
     private javax.swing.JTextField TFId;
     private javax.swing.JTextField TFMarca;
     private javax.swing.JTextField TFPrecio;
     private javax.swing.JTable TVentas;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
