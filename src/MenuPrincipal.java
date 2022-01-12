@@ -1,144 +1,134 @@
-//importar libreria
+//importar librerias
 import javax.swing.JOptionPane;
 
-//@author MKetzalli
-//creacion de clase
+//creacion de la clase que hereda elementos para diseñar la interfaz grafica
 public class MenuPrincipal extends javax.swing.JFrame {
-
+    
     //metodo constructor
     public MenuPrincipal() {
-        //inicializar componentes
+        //convocar metodo para inicializar
         initComponents();
-        //centrar ventana
+        //hacer que la ventana aparezca al centro de la pantalla
         this.setLocationRelativeTo(null);
     }
-
-    //comienzo de seccion generada por Design (inicializacion y personalizacion de componentes y contenedores)
+    
+    /*
+    comienzo de metodo inicializador componentes, dicho 
+    metodo se creo automaticamente por medio de la vista diseño
+    este contiene la personalizacion que se le dio a cada elemento
+    */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        EtiquetaTitulo = new javax.swing.JLabel();
-        BotonVentas = new javax.swing.JButton();
-        BotonPersonal = new javax.swing.JButton();
-        BotonInventarios = new javax.swing.JButton();
-        BotonSalirPrinc = new javax.swing.JButton();
-        EtiquetaFondo = new javax.swing.JLabel();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        JMOpciones = new javax.swing.JMenu();
-        JMISalir = new javax.swing.JMenuItem();
+        LRestaurante = new javax.swing.JLabel();
+        BVentas = new javax.swing.JButton();
+        BPersonal = new javax.swing.JButton();
+        BInventario = new javax.swing.JButton();
+        BSalir = new javax.swing.JButton();
+        EFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Restaurante");
+        setBounds(new java.awt.Rectangle(0, 0, 440, 340));
+        setPreferredSize(new java.awt.Dimension(436, 340));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        EtiquetaTitulo.setFont(new java.awt.Font("Berlin Sans FB Demi", 1, 48)); // NOI18N
-        EtiquetaTitulo.setForeground(new java.awt.Color(255, 255, 255));
-        EtiquetaTitulo.setText("RESTAURANTE");
-        getContentPane().add(EtiquetaTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, -1));
+        LRestaurante.setFont(new java.awt.Font("Rockwell Condensed", 0, 48)); // NOI18N
+        LRestaurante.setForeground(new java.awt.Color(255, 255, 255));
+        LRestaurante.setText("RESTAURANTE MEXICANO");
+        getContentPane().add(LRestaurante, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
-        BotonVentas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ventas.png"))); // NOI18N
-        BotonVentas.setToolTipText("");
-        BotonVentas.setBorder(null);
-        BotonVentas.setBorderPainted(false);
-        BotonVentas.setContentAreaFilled(false);
-        BotonVentas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        BotonVentas.setFocusPainted(false);
-        BotonVentas.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ventas pulsado.png"))); // NOI18N
-        BotonVentas.addActionListener(new java.awt.event.ActionListener() {
+        BVentas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ventas.png"))); // NOI18N
+        BVentas.setBorder(null);
+        BVentas.setBorderPainted(false);
+        BVentas.setContentAreaFilled(false);
+        BVentas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BVentas.setFocusPainted(false);
+        BVentas.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/ventas pulsado.png"))); // NOI18N
+        BVentas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonVentasActionPerformed(evt);
+                BVentasActionPerformed(evt);
             }
         });
-        getContentPane().add(BotonVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, -1, -1));
+        getContentPane().add(BVentas, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, -1, -1));
 
-        BotonPersonal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/personal.png"))); // NOI18N
-        BotonPersonal.setBorder(null);
-        BotonPersonal.setBorderPainted(false);
-        BotonPersonal.setContentAreaFilled(false);
-        BotonPersonal.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        BotonPersonal.setFocusPainted(false);
-        BotonPersonal.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/personal pulsado.png"))); // NOI18N
-        BotonPersonal.addActionListener(new java.awt.event.ActionListener() {
+        BPersonal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/personal.png"))); // NOI18N
+        BPersonal.setBorder(null);
+        BPersonal.setBorderPainted(false);
+        BPersonal.setContentAreaFilled(false);
+        BPersonal.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BPersonal.setFocusPainted(false);
+        BPersonal.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/personal pulsado.png"))); // NOI18N
+        BPersonal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonPersonalActionPerformed(evt);
+                BPersonalActionPerformed(evt);
             }
         });
-        getContentPane().add(BotonPersonal, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, -1, -1));
+        getContentPane().add(BPersonal, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, -1, -1));
 
-        BotonInventarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/inventarios.png"))); // NOI18N
-        BotonInventarios.setBorder(null);
-        BotonInventarios.setBorderPainted(false);
-        BotonInventarios.setContentAreaFilled(false);
-        BotonInventarios.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        BotonInventarios.setFocusPainted(false);
-        BotonInventarios.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/inventarios pulsado.png"))); // NOI18N
-        BotonInventarios.addActionListener(new java.awt.event.ActionListener() {
+        BInventario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/inventarios.png"))); // NOI18N
+        BInventario.setBorder(null);
+        BInventario.setBorderPainted(false);
+        BInventario.setContentAreaFilled(false);
+        BInventario.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BInventario.setFocusPainted(false);
+        BInventario.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/inventarios pulsado.png"))); // NOI18N
+        BInventario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonInventariosActionPerformed(evt);
+                BInventarioActionPerformed(evt);
             }
         });
-        getContentPane().add(BotonInventarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, -1, -1));
+        getContentPane().add(BInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 190, -1, -1));
 
-        BotonSalirPrinc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/salir.png"))); // NOI18N
-        BotonSalirPrinc.setBorder(null);
-        BotonSalirPrinc.setBorderPainted(false);
-        BotonSalirPrinc.setContentAreaFilled(false);
-        BotonSalirPrinc.setFocusPainted(false);
-        BotonSalirPrinc.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/salir pulsado.png"))); // NOI18N
-        BotonSalirPrinc.addActionListener(new java.awt.event.ActionListener() {
+        BSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/salir.png"))); // NOI18N
+        BSalir.setBorder(null);
+        BSalir.setBorderPainted(false);
+        BSalir.setContentAreaFilled(false);
+        BSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BSalir.setFocusPainted(false);
+        BSalir.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/img/salir pulsado.png"))); // NOI18N
+        BSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonSalirPrincActionPerformed(evt);
+                BSalirActionPerformed(evt);
             }
         });
-        getContentPane().add(BotonSalirPrinc, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, -1, -1));
+        getContentPane().add(BSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, -1, -1));
 
-        EtiquetaFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/comida.jpg"))); // NOI18N
-        getContentPane().add(EtiquetaFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 420, 360));
-
-        JMOpciones.setText("Opciones");
-
-        JMISalir.setText("Salir");
-        JMISalir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JMISalirActionPerformed(evt);
-            }
-        });
-        JMOpciones.add(JMISalir);
-
-        jMenuBar1.add(JMOpciones);
-
-        setJMenuBar(jMenuBar1);
+        EFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/restaurante.jpg"))); // NOI18N
+        getContentPane().add(EFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    //fin de seccion generada por Design
+    //fin del metodo inicializador
+    
+    //accion del boton Ventas
+    private void BVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BVentasActionPerformed
+        //crea objeto de la clase MenuVentas y lo vuelve visible
+        MenuVentas ventas = new MenuVentas();
+        ventas.setVisible(true);
+    }//GEN-LAST:event_BVentasActionPerformed
 
-    //cerrar al presionar salir
-    private void BotonSalirPrincActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonSalirPrincActionPerformed
+    //accion del boton Salir
+    private void BSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BSalirActionPerformed
+        //cierra el programa
         System.exit(0);
-    }//GEN-LAST:event_BotonSalirPrincActionPerformed
-    //mostrar mensaje en el boton de inventario (ya que aun no se programan sus funciones)
-    private void BotonInventariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonInventariosActionPerformed
-        JOptionPane.showMessageDialog(null, "OPCION NO HABILITADA TEMPORALMENTE");
-    }//GEN-LAST:event_BotonInventariosActionPerformed
-    //mostrar mensaje en el boton de personal (ya que aun no se programan sus funciones)
-    private void BotonPersonalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonPersonalActionPerformed
-        JOptionPane.showMessageDialog(null, "OPCION NO HABILITADA TEMPORALMENTE");
-    }//GEN-LAST:event_BotonPersonalActionPerformed
-    //al presionar boton de ventas se habilita la ventana de Ventas
-    private void BotonVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonVentasActionPerformed
-        Ventas MenuVentas = new Ventas();
-        MenuVentas.setVisible(true);
-    }//GEN-LAST:event_BotonVentasActionPerformed
-    //cerrar al presionarlo
-    private void JMISalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JMISalirActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_JMISalirActionPerformed
-    //metodo main
+    }//GEN-LAST:event_BSalirActionPerformed
+
+    //accion del boton Personal
+    private void BPersonalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BPersonalActionPerformed
+        //muestra mensaje de que no esta disponible
+        JOptionPane.showMessageDialog(null, "opcion no disponible");
+    }//GEN-LAST:event_BPersonalActionPerformed
+
+    //accion del boton Inventario
+    private void BInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BInventarioActionPerformed
+        //muestra mensaje de que no esta disponible
+        JOptionPane.showMessageDialog(null, "opcion no disponible");
+    }//GEN-LAST:event_BInventarioActionPerformed
+
+    //comienzo de metodo main generado por la vista diseño
     public static void main(String args[]) {
-        //comienzo de codigo generado por Design
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -155,24 +145,21 @@ public class MenuPrincipal extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new MenuPrincipal().setVisible(true);
             }
         });
-        //fin de codigo generado por Design
     }
+    //fin del metodo main
+    
     //declaracion de variables
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton BotonInventarios;
-    private javax.swing.JButton BotonPersonal;
-    private javax.swing.JButton BotonSalirPrinc;
-    private javax.swing.JButton BotonVentas;
-    private javax.swing.JLabel EtiquetaFondo;
-    private javax.swing.JLabel EtiquetaTitulo;
-    private javax.swing.JMenuItem JMISalir;
-    private javax.swing.JMenu JMOpciones;
-    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JButton BInventario;
+    private javax.swing.JButton BPersonal;
+    private javax.swing.JButton BSalir;
+    private javax.swing.JButton BVentas;
+    private javax.swing.JLabel EFondo;
+    private javax.swing.JLabel LRestaurante;
     // End of variables declaration//GEN-END:variables
 }
